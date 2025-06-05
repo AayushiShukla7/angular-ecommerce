@@ -7,8 +7,7 @@ import { ProductsListComponent } from "./pages/products-list/products-list.compo
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    HeaderComponent,
-    ProductsListComponent
+    HeaderComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
