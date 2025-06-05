@@ -83,19 +83,24 @@ export class ProductsListComponent implements OnInit {
     }
   ]);
 
+  category = "electronics";   // electronics, jewelery, men's clothing, women's clothing 
+  url: string = 'https://fakestoreapi.com/products/category/' + this.category;
+
   async ngOnInit() {
-    const result = await fetch('https://fakestoreapi.com/products/category/electronics');
+    //await this.fetchCategoryProducts();
+    await this.fetchAllProducts();
+  }
+
+  async fetchAllProducts() {
+    const result = await fetch('https://fakestoreapi.com/products');
     const data = await result.json();
     this.products.set(data);
   }
 
-  fetchAllProducts() {
-    fetch('https://fakestoreapi.com/products')
-  }
-
-  fetchCategoryProducts() {
-    // Categories - ["electronics","jewelery","men's clothing","women's clothing"]
-    fetch('https://fakestoreapi.com/products/category/electronics');
+  async fetchCategoryProducts() {
+    const result = await fetch(this.url);
+    const data = await result.json();
+    this.products.set(data);
   }
 
 }
