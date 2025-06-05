@@ -1,12 +1,15 @@
-<div class="bg-white shadow-md shadow-slate-300 border-0 rounded-xl p-6 flex flex-row gap-4 relative items-center">
+<div class="bg-white shadow-md shadow-slate-400 border-1 border-slate-200 rounded-xl p-6 flex flex-row gap-4 relative items-center w-[800px] m-auto">
     <img [src]="item().image" class="w-[100px] h-[50px] object-contain">
 
-    <div class="flex flex-col">
-        <span class="text-md font-bold">{{ item().title }}</span>
-        <span class="text-sm">{{ '$' + item().price }}</span>
+    <div class="flex flex-row w-full justify-between">    
+        <div class="flex flex-col">
+            <span class="text-md font-bold">{{ item().title }}</span>
+            <span class="text-sm">{{ '$' + item().price }}</span>
+        </div>
     </div>
 
     <div class="flex-1">
         <app-button label="Remove" (btnClicked)="cartService.removeFromCart(item().id)"></app-button>
     </div>
+
 </div>
