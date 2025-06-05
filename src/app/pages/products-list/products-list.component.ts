@@ -1,10 +1,14 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Product } from '../../models/products.model';
 import { ProductCardComponent } from "./product-card/product-card.component";
+import { ButtonComponent } from "../../components/button/button.component";
 
 @Component({
   selector: 'app-products-list',
-  imports: [ProductCardComponent],
+  imports: [
+    ProductCardComponent, 
+    ButtonComponent
+  ],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css'
 })
@@ -97,7 +101,9 @@ export class ProductsListComponent implements OnInit {
     this.products.set(data);
   }
 
-  async fetchCategoryProducts() {
+  async fetchCategoryProducts(cat: string = 'electronics') {
+    this.url = 'https://fakestoreapi.com/products/category/' + cat;
+    
     const result = await fetch(this.url);
     const data = await result.json();
     this.products.set(data);

@@ -1,3 +1,12 @@
+<div class="p-4 flex flex-row gap-4 bg-slate-100 shadow-md items-center">
+    <h4 class="text-xl font-bold">Choose a category: </h4>
+    <app-button label="All" (btnClicked)="this.fetchAllProducts()"></app-button>
+    <app-button label="Electronics" (btnClicked)="this.fetchCategoryProducts('electronics')"></app-button>
+    <app-button label="Jewellery" (btnClicked)="this.fetchCategoryProducts('jewelery')"></app-button>
+    <app-button label="Men's Clothing" (btnClicked)="this.fetchCategoryProducts('men\'s clothing')"></app-button>
+    <app-button label="Women's Clothing" (btnClicked)="this.fetchCategoryProducts('women\'s clothing')"></app-button>
+</div>
+
 <div class="p-8 grid grid-cols-3 gap-4 bg-pink-100 hover:bg-blue-100 transition-colors duration-500">
     @for (product of products(); track product.id) {
         <!-- <div>{{ product.title }}</div> -->
