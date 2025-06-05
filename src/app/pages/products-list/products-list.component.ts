@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Product } from '../../models/products.model';
 import { ProductCardComponent } from "./product-card/product-card.component";
 
@@ -8,8 +8,8 @@ import { ProductCardComponent } from "./product-card/product-card.component";
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css'
 })
-export class ProductsListComponent {
-
+export class ProductsListComponent implements OnInit {
+  
   products = signal<Product[]>([
     {
       id: 1,
@@ -82,5 +82,20 @@ export class ProductsListComponent {
       // stock is intentionally omitted
     }
   ]);
+
+  async ngOnInit() {
+    const result = await fetch('https://fakestoreapi.com/products/category/electronics');
+    const data = await result.json();
+    this.products.set(data);
+  }
+
+  fetchAllProducts() {
+    fetch('https://fakestoreapi.com/products')
+  }
+
+  fetchCategoryProducts() {
+    // Categories - ["electronics","jewelery","men's clothing","women's clothing"]
+    fetch('https://fakestoreapi.com/products/category/electronics');
+  }
 
 }
