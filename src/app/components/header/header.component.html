@@ -1,7 +1,8 @@
 <!-- <p>{{ title }}</p> -->
 
-<div class="header">{{ title() }}</div>
+<div class="bg-slate-200 px-4 py-3 shadow-md flex justify-between items-center">
+    <span class="text-xl">My Store</span>    
+    <app-primary-button label="Cart" (btnClicked)="showButtonClicked()"></app-primary-button>
+</div>
 
-<h1 class="text-3xl font-bold underline text-center mt-10">
-  Angular v19.1 + Tailwind CSS 4.0
-</h1>
+
