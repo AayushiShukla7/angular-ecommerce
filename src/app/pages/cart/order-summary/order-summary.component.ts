@@ -1,10 +1,14 @@
 import { Component, computed, inject } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { PrimaryButtonComponent } from "../../../components/primary-button/primary-button.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-order-summary',
-  imports: [PrimaryButtonComponent],
+  imports: [
+    PrimaryButtonComponent,
+    RouterLink
+  ],
   templateUrl: './order-summary.component.html',
   styleUrl: './order-summary.component.css'
 })
