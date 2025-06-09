@@ -88,14 +88,29 @@
             <h4 class="font-bold text-xl mb-2">Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b> {{ this.totalItemCount }} </b></span></h4>
             <hr class="mb-2">
 
-            @for (item of cartService.cart(); track $index) {
+            <table class="table table-auto">
+                @for (item of cartItems; track $index) {
+                <tr>
+                    <td class="px-2">
+                        <b>({{ $index + 1 }})</b>
+                    </td>
+                    <td class="px-2">
+                        {{ item.title }}
+                    </td>                     
+                    <td class="px-2">
+                        <b>${{ item.price }}</b>
+                    </td>
+                </tr>
+            }
+            </table>
+            <!-- @for (item of cartItems; track $index) {
                 <p>
-                    <a href="#"><b>({{ $index + 1 }})</b> {{ item.title }} </a> 
+                    <b>({{ $index + 1 }})</b> {{ item.title }}
                     <span>
                         <b> - ${{ item.price }}</b>
                     </span>
                 </p>
-            }
+            } -->
 
             <hr class="mt-2">
             <p class="mt-2">Total - <span class="px-2 bg-cyan-100" style="color:black"><b>${{ total() }}</b></span></p>
