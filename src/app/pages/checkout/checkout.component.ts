@@ -5,13 +5,15 @@ import { Customer } from '../../models/customer.model';
 import { Payment } from '../../models/payment.model';
 import { CartService } from '../../services/cart.service';
 import { environment } from '../../../environments/environment.development';
+import { PaymentComponent } from "./payment/payment.component";
 
 @Component({
   selector: 'app-checkout',
   imports: [
     FormsModule,
-    PrimaryButtonComponent
-  ],
+    PrimaryButtonComponent,
+    PaymentComponent
+],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })
