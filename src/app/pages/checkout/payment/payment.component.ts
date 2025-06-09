@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PrimaryButtonComponent } from "../../../components/primary-button/primary-button.component";
 import { environment } from '../../../../environments/environment.development';
+import { ButtonComponent } from '../../../components/button/button.component';
 
 @Component({
   selector: 'app-payment',
   imports: [
     FormsModule,
     NgIf,
-    PrimaryButtonComponent
+    ButtonComponent
 ],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'

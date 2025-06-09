@@ -12,9 +12,9 @@
     </div>
 
     <div class="w-full py-2">
-        <app-primary-button label="Pay Now" (btnClicked)="makePayment(stripeAmount)">
+        <app-button label="Pay Now" (btnClicked)="makePayment(stripeAmount)">
             <span *ngIf="isLoading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-        </app-primary-button>
+        </app-button>
     </div>
   </div>
 </main>
